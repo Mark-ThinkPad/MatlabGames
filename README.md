@@ -11,7 +11,7 @@
 - 系统: `Windows 7 SP1 64-bit`
 - MATLAB版本: `R2019a Update5 64-bit(win64)` (Professional License)
 
-## 文件结构
+## 项目结构
 
 > `.mlapp` 格式为 `App Designer` 默认生成的二进制文件
 
