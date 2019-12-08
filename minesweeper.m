@@ -4,9 +4,9 @@ row=15;col=20;mines=45;
 total=mines;times=1;
 remine=row*col;
 flags=0;
-hf=figure('NumberTitle','off','Name','æ‰«é›·','menubar','none','position',[370,130,600,500]);
-uh1=uimenu('label','å¸®åŠ©');
-uimenu(uh1,'label','æ¸¸æˆè§„åˆ™','callback',['msgbox(''å’Œwindowsè‡ªå¸¦çš„æ‰«é›·ä¸€ä¸ªæ ·ï¼Œå—¯å“’'')'])
+hf=figure('NumberTitle','off','Name','É¨À×','menubar','none','position',[370,130,600,500]);
+uh1=uimenu('label','°ïÖú');
+uimenu(uh1,'label','ÓÎÏ·¹æÔò','callback',['msgbox(''ºÍwindows×Ô´øµÄÉ¨À×Ò»¸öÑù£¬àÅßÕ'')'])
 colormap([1 0 0;0 0 0;.65 .65 .65;1 1 1]);
 axis off
    hold on;
@@ -66,7 +66,7 @@ end
                 bombs=p+row*(q-1);
                 set(h(bombs),'style','text','string','x','ForegroundColor','k','backgroundcolor',0.85*[1,1,1]);
                 set(hobject,'style','text','string','X','ForegroundColor',[0.8 0 0],'backgroundcolor',0.85*[1,1,1]);
-                buttonName2=questdlg('å¾ˆæŠ±æ­‰ï¼Œä¸‹æ¬¡åŠªåŠ›å“¦ï¼ï¼ï¼','Game over','close','close');
+                buttonName2=questdlg('ºÜ±§Ç¸£¬ÏÂ´ÎÅ¬Á¦Å¶£¡£¡£¡','Game over','close','close');
                 if isempty(buttonName2)
                     buttonName2='end';
                 end
@@ -130,7 +130,7 @@ end
             [p,q]=find(mine==1);
                 bombs=p+row*(q-1);
                 set(h(bombs),'string','!','ForegroundColor',[0.9,0,0]);
-            buttonName1=questdlg('æ­å–œä½ ï¼Œä½ çœŸæ£’ï¼ï¼ï¼?','Congratulations','close','close');
+            buttonName1=questdlg('¹§Ï²Äã£¬ÄãÕæ°ô£¡£¡£¡?','Congratulations','close','close');
                 if isempty(buttonName1)
                     buttonName1='end';
                 end

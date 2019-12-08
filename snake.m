@@ -1,31 +1,31 @@
 function snake
-  axis equal                    %è®¾ç½®åæ ‡è½´ä¸ºå¯¹ç§°      
-  axis(0.5+[0, 20, 0, 20])          %åŠ 0.5æ˜¯ä¸ºäº†ä¹‹åçš„å¢™å£ç¢°æ’æ£€æµ‹çš„æ–¹ä¾¿
-  set(gca,'xtick',[],'ytick',[],'xcolor','w','ycolor','w')      %éšè—åæ ‡è½´
+  axis equal                    %ÉèÖÃ×ø±êÖáÎª¶Ô³Æ      
+  axis(0.5+[0, 20, 0, 20])          %¼Ó0.5ÊÇÎªÁËÖ®ºóµÄÇ½±ÚÅö×²¼ì²âµÄ·½±ã
+  set(gca,'xtick',[],'ytick',[],'xcolor','w','ycolor','w')      %Òş²Ø×ø±êÖá
   set(gca, 'color', 'y')
   hold on                                                  
-  snakeTop = [5, 5];                   %è¿™æ˜¯è›‡å¤´çš„åˆå§‹ä½ç½®
-  snakeDirect = [1, 0];                %è›‡çš„æ–¹å‘
-  body = [5, 5 ; 4, 5 ; 3, 5];          %è›‡èº«çš„åˆå§‹ä½ç½®æ•°ç»„  
-  long = 3;                                 %è›‡çš„é•¿åº¦            
-  food = [10, 10];                        %é£Ÿç‰©çš„åˆå§‹ä½ç½®
-  plotSnake = scatter(gca, body(:, 1), body(:, 2), 220, 'bs', 'filled');                  %é€šè¿‡å‡½æ•°scatterç”»å‡ºè›‡èº«ï¼Œscatteræ˜¯ç”»æ•£ç‚¹å›¾çš„å‡½æ•°
-  plotFood = scatter(gca, food(1), food(2), 150, 'g', 'filled');                           %é€šè¿‡å‡½æ•°scatterç”»å‡ºé£Ÿç‰©
-  set(gcf, 'KeyPressFcn', @key)                                                                     %è®¾ç½®æŒ‰é”®åˆ¤æ–­
+  snakeTop = [5, 5];                   %ÕâÊÇÉßÍ·µÄ³õÊ¼Î»ÖÃ
+  snakeDirect = [1, 0];                %ÉßµÄ·½Ïò
+  body = [5, 5 ; 4, 5 ; 3, 5];          %ÉßÉíµÄ³õÊ¼Î»ÖÃÊı×é  
+  long = 3;                                 %ÉßµÄ³¤¶È            
+  food = [10, 10];                        %Ê³ÎïµÄ³õÊ¼Î»ÖÃ
+  plotSnake = scatter(gca, body(:, 1), body(:, 2), 220, 'bs', 'filled');                  %Í¨¹ıº¯Êıscatter»­³öÉßÉí£¬scatterÊÇ»­É¢µãÍ¼µÄº¯Êı
+  plotFood = scatter(gca, food(1), food(2), 150, 'g', 'filled');                           %Í¨¹ıº¯Êıscatter»­³öÊ³Îï
+  set(gcf, 'KeyPressFcn', @key)                                                                     %ÉèÖÃ°´¼üÅĞ¶Ï
   fps = 5;                                    
-  game = timer('ExecutionMode', 'FixedRate', 'Period',1/fps, 'TimerFcn', @snakeGame);       %è®¾ç½®å®šæ—¶å™¨çš„å‚æ•°
-  start(game)                               %å¼€å§‹æ¸¸æˆ
+  game = timer('ExecutionMode', 'FixedRate', 'Period',1/fps, 'TimerFcn', @snakeGame);       %ÉèÖÃ¶¨Ê±Æ÷µÄ²ÎÊı
+  start(game)                               %¿ªÊ¼ÓÎÏ·
  
    function snakeGame(~,~)
-    snakeTop = snakeTop + snakeDirect;              %è›‡çš„ç§»åŠ¨
+    snakeTop = snakeTop + snakeDirect;              %ÉßµÄÒÆ¶¯
     body = [snakeTop; body] ;                                 
     while length(body)> long
       body(end, : ) = [];         
     end
     
-    if intersect(body(2 : end, : ), snakeTop, 'rows')               %åˆ¤æ–­è›‡å¤´æ˜¯å¦æ’åˆ°è‡ªå·±çš„èº«ä½“
-        ButtonName1 = questdlg('æ¸¸æˆç»“æŸï¼Œè¯·ç‚¹å‡»æŒ‰é’®ç»§ç»­......','Gave Over','é‡æ–°å¼€å§‹','å…³é—­æ¸¸æˆ', 'Yes');
-        if ButtonName1 == 'é‡æ–°å¼€å§‹'
+    if intersect(body(2 : end, : ), snakeTop, 'rows')               %ÅĞ¶ÏÉßÍ·ÊÇ·ñ×²µ½×Ô¼ºµÄÉíÌå
+        ButtonName1 = questdlg('ÓÎÏ·½áÊø£¬Çëµã»÷°´Å¥¼ÌĞø......','Gave Over','ÖØĞÂ¿ªÊ¼','¹Ø±ÕÓÎÏ·', 'Yes');
+        if ButtonName1 == 'ÖØĞÂ¿ªÊ¼'
             clf;
             snake();
         else
@@ -33,7 +33,7 @@ function snake
         end
     end      
     
-    if isequal(snakeTop, food)             %åˆ¤æ–­æ˜¯å¦åƒåˆ°é£Ÿç‰©
+    if isequal(snakeTop, food)             %ÅĞ¶ÏÊÇ·ñ³Ôµ½Ê³Îï
       long = long + 1;                   
       food = randi(20, [1, 2]); 
       while any(ismember(body, food, 'rows'))
@@ -41,9 +41,9 @@ function snake
       end
     end        
     
-    if (snakeTop(1, 1)>20)||(snakeTop(1, 1)<1)||(snakeTop(1, 2)>20)||(snakeTop(1, 2)<1)         %åˆ¤æ–­æ˜¯å¦æ’åˆ°å¢™å£
-        ButtonName2 = questdlg('æ¸¸æˆç»“æŸï¼Œè¯·ç‚¹å‡»æŒ‰é’®ç»§ç»­......','Gave Over','é‡æ–°å¼€å§‹','å…³é—­æ¸¸æˆ', 'å…³é—­æ¸¸æˆ');
-        if ButtonName2 == 'é‡æ–°å¼€å§‹'
+    if (snakeTop(1, 1)>20)||(snakeTop(1, 1)<1)||(snakeTop(1, 2)>20)||(snakeTop(1, 2)<1)         %ÅĞ¶ÏÊÇ·ñ×²µ½Ç½±Ú
+        ButtonName2 = questdlg('ÓÎÏ·½áÊø£¬Çëµã»÷°´Å¥¼ÌĞø......','Gave Over','ÖØĞÂ¿ªÊ¼','¹Ø±ÕÓÎÏ·', '¹Ø±ÕÓÎÏ·');
+        if ButtonName2 == 'ÖØĞÂ¿ªÊ¼'
             clf;
             snake();
         else
@@ -51,7 +51,7 @@ function snake
         end
     end
     
-    set(plotFood, 'XData', food(1),  'YData', food(2));             %ä¸æ–­çš„åˆ·æ–°ç”»é¢
+    set(plotFood, 'XData', food(1),  'YData', food(2));             %²»¶ÏµÄË¢ĞÂ»­Ãæ
     set(plotSnake, 'XData', body( : , 1), 'YData', body( : , 2));
   end
  
@@ -68,11 +68,11 @@ function snake
       case 'space'
         stop(game); 
         direct = snakeDirect;
-        ButtonName3 = questdlg('æ¸¸æˆæš‚åœ......', 'Stop ', 'é‡æ–°å¼€å§‹', 'å…³é—­æ¸¸æˆ', 'ç»§ç»­æ¸¸æˆ', 'å…³é—­æ¸¸æˆ');
-        if ButtonName3 == 'é‡æ–°å¼€å§‹'
+        ButtonName3 = questdlg('ÓÎÏ·ÔİÍ£......', 'Stop ', 'ÖØĞÂ¿ªÊ¼', '¹Ø±ÕÓÎÏ·', '¼ÌĞøÓÎÏ·', '¹Ø±ÕÓÎÏ·');
+        if ButtonName3 == 'ÖØĞÂ¿ªÊ¼'
             clf;
             snake();
-        elseif ButtonName3 == 'å…³é—­æ¸¸æˆ'
+        elseif ButtonName3 == '¹Ø±ÕÓÎÏ·'
             close;
         else
            start(game);
